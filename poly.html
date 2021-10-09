@@ -1,0 +1,303 @@
+<html>
+	<head>Chains
+		<style>
+			body {
+				background-color: black;
+				color: white;
+			}
+			table {
+				color: white;
+			}
+			a {
+				color:white;
+			}
+		</style>
+	</head>
+	<body>
+
+	<select id='chain' >
+		<option value='etherium'>Etherium</option>
+		<option value='arb'>Arb</option>
+		<option value='opt'>Optimism</option>
+		<option value='nft'>NFT</option>
+		
+		<option value='ftm'>Ftm</option>
+		<option value='opensea'>opensea</option>
+		<option value='polygon'>polygon</option>
+	</select>
+	<button id='reload'>Reload Same </button>
+
+
+	<input type='text' id='search' />	
+	 <br/>
+	8 pay bsc Duke rick bougth at 0.0205
+	<a href="https://bscscan.com/tx/0x64ef41c0d43cd4d49366dc61d097403d5c99326162f96b6f8db5f574737a43c9">Transaction link </a> <br/>
+	 <br/>
+	Track Chimp Avax trades
+	<a href='https://cchain.explorer.avax.network/address/0x19e4912DA337024d754b26182ac7177F7D3E2a45/token-transfers'>Neo Avax </a> <br/>
+	<div class='result'>
+		test
+	</div>	
+
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js" ></script>
+	<script>
+// dizzy dragaon  - 6086 - abbuniverse - 
+	$(document).ready(function() {
+//117071525565
+/* active avax accounts
+0xa72dd12b9329e6efe095c030f361131604a79586
+
+0x780709dffad3aaf57bf38f2d035980be389dc8ff
+
+0xf817554cc4ca4fe435dbf43bd1bacf0d7b0f38d7
+
+0x19e4912da337024d754b26182ac7177f7d3e2a45
+
+ 
+
+// nakjii - decent nft trader -- has black boxes and watchers 0x8b2f579c4670f4e2feae28efa920afa4eb32d76a
+
+*/
+
+		// api key 
+		// JWI7WBAMSKYHJW9T5RACXYGF95PDUBDZ95
+		var url = "https://api.polygonscan.com/api?module=account&action=tokentx&address=0xb54e3abdc039cf42f5d7dbabc6d81b7ec34fc661&page=1&offset=10&sort=desc&apikey=JWI7WBAMSKYHJW9T5RACXYGF95PDUBDZ95";
+		// eth  $apiUrl = "https://api.etherscan.io/api?module=account&action=tokentx&address=".$addr."&page=1&offset=".self::LIMIT."&sort=desc&apikey=7AUEACQY1655CZK5TTWVBNH534XKVZ3R2G".self::API_KEY;
+
+		//var all_addr = {'rollGod':'0xc4f107089a02e5b3e52b99f73d19edb99e68dcc9','theodore_detweiler':'0x5Eb67a3b141f3036899EE77822A41277166c540e','pyqSuperGod':'0xB54E3abdC039Cf42F5D7DBABC6d81b7Ec34Fc661','AlphaLord':'0xf817554cc4ca4fe435dbf43bd1bacf0d7b0f38d7','importantAlpha':'0x9d156bc7c8768294510a4a41883d5a4eb15b15e3','teamAlpha':'0x1a616dae57382a9084c026d3f475aed59c2668cb'};
+
+		// nansen ai alert address
+		/*
+		0x5Eb67a3b141f3036899EE77822A41277166c540e, 0xf817554cc4ca4fe435dbf43bd1bacf0d7b0f38d7, 0x9d156bc7c8768294510a4a41883d5a4eb15b15e3, 0x9b7d7c4ce98036c4d6f3d638a00e220e083116c7, 0x19e4912da337024d754b26182ac7177f7d3e2a45, 0xa72dd12b9329e6efe095c030f361131604a79586, 0xb290fd44a628a21fccbf6347668d80de4177da42, 0x88b503c81a4fb9c9c5464dd3c6835fc34b2cc85d, 0x009988ff77eeaa00051238ee32c48f10a174933e, 0x28d804Bf2212E220BC2B7B6252993Db8286dF07f
+		*/
+
+		// avax 
+		// khalil , defipunt  , duke rick {active}
+		//  defipunt  - 0xf817554cc4ca4fe435dbf43bd1bacf0d7b0f38d7
+		var all_addr = {'theodore_detweiler':'0x5Eb67a3b141f3036899EE77822A41277166c540e','khalil':'0x780709dffad3aaf57bf38f2d035980be389dc8ff','defiPunts':'0xf817554cc4ca4fe435dbf43bd1bacf0d7b0f38d7','azima':'0x9d156bc7c8768294510a4a41883d5a4eb15b15e3','cryptamurai':'0x9b7d7c4ce98036c4d6f3d638a00e220e083116c7','unihax':'0x29bf6652e795c360f7605be0fcd8b8e4f29a52d4','unihax_2':'0xd794200dec4f0344600ce3858147c251792a9629','unihax_3':'0x9ffb857e3af210950c17a546988a5d8c5ce01fd6','theo_2':'0xefb10e5CE5Bf77E58eF80e01e2401b66d5A73C2F','chimp_neo':'0x19e4912da337024d754b26182ac7177f7d3e2a45','bogatov':'0xBf26925f736E90E1715ce4E04cD9c289dD1bc002','theo_3':'0x25e79cb3fefcb38be9462eda5b61d777fce44dc2','hritkal':'0xad9886dac55c0167d8e7da9c1499f96933bda001','duke_rick':'0xa72dd12b9329e6efe095c030f361131604a79586','b34r.eth':'0x721931508df2764fd4f70c53da646cb8aed16ace','0xfeaa':'0xfeae9fe11170fc19b6f40796fd1debfa360daacc',
+		'KRYPTOLOS':'0xc45bc79fed1c29cacf4c8bda91c75ab1c37da1b6','lordAlpha':'0xb290fd44a628a21fccbf6347668d80de4177da42','H3R3TiKALL':'0x7f581b389345835138Dc43F2ade09Be91916078b','Chuba.eth':'0x88b503c81a4fb9c9c5464dd3c6835fc34b2cc85d'};
+
+		var all_addr = {'theodore_detweiler':'0x5Eb67a3b141f3036899EE77822A41277166c540e','khalil':'0x780709dffad3aaf57bf38f2d035980be389dc8ff','defiPunts':'0xf817554cc4ca4fe435dbf43bd1bacf0d7b0f38d7','azima':'0x9d156bc7c8768294510a4a41883d5a4eb15b15e3','cryptamurai':'0x9b7d7c4ce98036c4d6f3d638a00e220e083116c7','unihax':'0x29bf6652e795c360f7605be0fcd8b8e4f29a52d4', 'chimp_neo':'0x19e4912da337024d754b26182ac7177f7d3e2a45','bogatov':'0xBf26925f736E90E1715ce4E04cD9c289dD1bc002','duke_rick':'0xa72dd12b9329e6efe095c030f361131604a79586', 'lordAlpha':'0xb290fd44a628a21fccbf6347668d80de4177da42','lootChamp':'0x28d804Bf2212E220BC2B7B6252993Db8286dF07f','NoKapRich':'0x867b284523c71a52c56c3034543079665c5ac69a','klimaKing':'0x4d928359e8556197f161f4927a928dfde9c3d1a8','cryptik1':'0x29bf02c855fabe805c2f74d8f4be02d060e1306f','shual':'0x9ed8b4e877d597bf464f88cc1afbf19fbf5aa1ba','theo_2':'0xefb10e5ce5bf77e58ef80e01e2401b66d5a73c2f','balan':'0x9dcc35ae915926f7f5e8c624254d91f755d55b71','dcfGod':'0x0f763341b448bb0f02370f4037fe4a2c84c9283f','lordAlpha_2':'0xb290fd44a628a21fccbf6347668d80de4177da42','lordAlpha_3':'0x4A8E9FabFF91F6D124c1d7CD939303834AB6F114'} ;
+
+
+		// 'teamAlpha':'0x1a616dae57382a9084c026d3f475aed59c2668cb','polyTime':'0xb54e3abdc039cf42f5d7dbabc6d81b7ec34fc661',
+		// 'b34r.eth':'0x721931508df2764fd4f70c53da646cb8aed16ace','0xfeaa':'0xfeae9fe11170fc19b6f40796fd1debfa360daacc' // find this other account 
+		// 'skull eth':'0x6Bf97f2534be2242dDb3A29bfb24d498212DcdED'
+
+		var blacklist = {'rollFollower':'0x1fc7a9477d0b15308e2bf54637ce23b1002990a0','pyqMaster':'0x72F4a0636523AE1642C40572c1EbaD585F772A9B'};
+		//,'rollJoint':'0x07A627fb92a71A10b5a5C96358bF8E3e19942289', ,'8Ball':'0xf0718a0388fe1f137d3cc4aaae23a0f9f1d0187a'
+		//console.log(JSON.parse(addr));
+		//var obj = JSON.parse(addr);
+		//console.log((all_addr.rollGod));
+		var url = '';
+
+		$("#chain").on("change", callingAlpha);
+		callingAlpha();
+
+		function callingAlpha() {
+			
+
+			window.final = [];
+			window.userCnt=0;
+			$(".result").html('Loading...');
+
+			$.each(all_addr,function(name,addr){ 
+				getData(name,addr); 
+			})
+		}
+
+		$("#reload").on('click',callingAlpha); 
+
+ 
+		function getData(name,addr) {
+			var chain = $("#chain").val();
+			var txCnt = 10;
+			console.log('chain '+chain);
+			//console.log('this call '+1);
+			//
+			if(chain =='etherium') {
+				var url = "https://api.etherscan.io/api?module=account&action=tokentx&address="+addr+"&page=1&offset="+txCnt+"&sort=desc&apikey=7AUEACQY1655CZK5TTWVBNH534XKVZ3R2G";
+			} else if(chain == 'nft'){
+				var url = "https://api.etherscan.io/api?module=account&action=tokennfttx&address="+addr+"&page=1&offset="+txCnt+"&sort=desc&apikey=7AUEACQY1655CZK5TTWVBNH534XKVZ3R2G";
+			} else if(chain == 'opensea'){
+				 
+				var url = "https://api.opensea.io/api/v1/events?account_address="+addr+"&event_type=successful&only_opensea=true&offset=0&limit=10";
+			} else if(chain == 'arb') {
+				var url ="https://api.arbiscan.io/api?module=account&action=tokentx&address="+addr+"&page=1&offset="+txCnt+"&sort=desc&apikey=YourApiKeyToken"
+			} else if(chain == 'opt') {
+				var url ="https://api-optimistic.etherscan.io/api?module=account&action=tokentx&address="+addr+"&page=1&offset="+txCnt+"&sort=desc&apikey=YourApiKeyToken"
+			} else if(chain == 'ftm') {
+				var url ="https://api.ftmscan.com/api?module=account&action=tokentx&address="+addr+"&page=1&offset="+txCnt+"&sort=desc&apikey=UPHBTMFAZ1FDIPCZZSSUWS12YQFBQQ55IG"
+			}	 
+			else {
+				// disabled polygon
+				//default polygon
+				var url ='https://api.polygonscan.com/api?module=account&action=tokentx&address='+addr+'&page=1&offset='+txCnt+'&sort=desc&apikey=JWI7WBAMSKYHJW9T5RACXYGF95PDUBDZ95';
+			}
+			// 0x4d928359e8556197f161f4927a928dfde9c3d1a8 - check this address for klima balancer
+			console.log(url);
+			//https://explorer.celo.org/api?module=account&action=txlist&address=0x9b7d7c4ce98036c4d6f3d638a00e220e083116c7
+
+			
+			var defDecimal =1000000000000000000;
+			var tk = []
+			tk[6]=1000000;
+			tk[8]=1000000000;
+			tk[18]=defDecimal;
+
+			jQuery.ajaxSetup({async:false});
+
+			$.get( url, function( data ) {
+				var result = data.result;
+				var userData = {};
+ 
+				//console.log(result);
+				  $.each(result,function(k,v){
+				  	// console.log(v.tokenName+' '+v.tokenSymbol+' '+v.value+' '+v.from+' '+v.tokenDecimal);
+				  	theDate = new Date(v.timeStamp * 1000);
+
+				  	
+					  var tokenVal =0;
+					  var dec = '';
+
+
+				  	dec =v.tokenDecimal;
+				  	tokenVal = v.value;
+				  	if(dec == 6 || dec == 8 || dec == 18) {
+
+				  		tokenVal = v.value/tk[dec];
+				  		//console.log(v.value+' '+tk[dec]+' '+tokenVal);
+				  	}
+
+					row = {};
+					row['hash']=v.hash;
+					row['tokenName'] =v.tokenName;
+					row['tokenSymbol'] =v.tokenSymbol;
+					row['contractAddr'] =  v.contractAddress ; //(v.from == addr ) ? v.to : v.from;
+					row['tokenVal'] =tokenVal;
+					row['timeStamp'] =v.timeStamp;
+					row['nickName']=name;
+					row['userAddr']=addr; 
+
+					window.final.push(row);
+					
+				  })
+				  //console.log(window.final);
+
+				 window.userCnt++;
+			})
+			.done(function(){ 
+				var length =  Object.keys(all_addr).length; 
+				if(length == window.userCnt) {//length *6) {
+					console.log('calling make table ');
+					makeTbl();
+				}
+				
+			});
+
+			
+
+		}
+
+
+		$("#search").on("keyup", function() {
+		    var value = $(this).val();
+
+		    $("table tr").each(function(index) {
+		        if (index != 0) {
+
+		            $row = $(this);
+
+		            var id = $row.find("td:nth-child(3)").text().toLowerCase();
+
+		            if (id.indexOf(value) != 0) {
+		                $(this).hide();
+		            }
+		            else {
+		                $(this).show();
+		            }
+		        }
+		    });
+		}); 
+		function makeTbl() {
+			var chain = $("#chain").val(); 
+			var finalVals = window.final;
+
+			finalVals.sort(getSorted('timeStamp')); 
+			 var html = "<table border=1 style='border-collapse:collapse;'>";
+		  html += "<tr>";
+		  html+='<td>From </td>';
+		  html+='<td>Token Name</td>';
+		  html+='<td>Symbol</td>';
+		  html+='<td>Addr</td>';
+		  html+='<td>Value</td>';
+		  html+="<td>Link</td>"; 
+		  html+='<td>Time</td>';
+		  html+='</tr>';
+
+		  $.each(finalVals,function(k,v){ 
+		  	theDate = new Date(v.timeStamp * 1000);
+
+		  	dec =v.tokenDecimal;
+		  	tokenVal = v.tokenVal;
+		   
+			html += "<tr>";
+			if(chain =='polygon') {
+				html+='<td><a href="https://polygonscan.com/address/'+v.userAddr+'#tokentxns" target="_blank">'+v.nickName+' </a></td>';
+			}  else if(chain =='arb') {
+				html+='<td><a href="https://arbiscan.io/address/'+v.userAddr+'#tokentxns" target="_blank">'+v.nickName+' </a></td>';
+			} else if(chain =='opt') {
+				html+='<td><a href="https://optimistic.etherscan.io/address/'+v.userAddr+'#tokentxns" target="_blank">'+v.nickName+' </a></td>';
+			} else if(chain =='ftm') {
+				html+='<td><a href="https://ftmscan.com/address/'+v.userAddr+'#tokentxns" target="_blank">'+v.nickName+' </a></td>';
+			} else {
+				html+='<td><a href="https://etherscan.io/address/'+v.userAddr+'#tokentxns" target="_blank">'+v.nickName+' </a></td>';
+				
+			}
+			html+='<td>'+v.tokenName+'</td>';
+			html+='<td>'+v.tokenSymbol+'</td>';
+			html+='<td>'+v.contractAddr+'</td>';
+			html+='<td>'+tokenVal+'</td>';
+			if(chain =='polygon') {
+				html+='<td><a href="https://polygonscan.com/tx/'+v.hash+'" target="_blank">Txn Lnk</a></td>';
+			} else if(chain =='arb') {
+				html+='<td><a href="https://arbiscan.io/tx/'+v.hash+'" target="_blank">Txn Lnk</a></td>';
+			} else if(chain =='opt') {
+				html+='<td><a href="https://optimistic.etherscan.io/tx/'+v.hash+'" target="_blank">Txn Lnk</a></td>';
+			} else if(chain =='ftm') {
+				html+='<td><a href="https://ftmscan.com/tx/'+v.hash+'" target="_blank">Txn Lnk</a></td>';
+			}else {
+				
+
+				html+='<td><a href="https://etherscan.io/tx/'+v.hash+'" target="_blank">Txn Lnk</a></td>';
+			}
+ 
+			html+='<td>'+theDate.toLocaleString()+'</td>';
+			html+='</tr>';
+		  	 
+		  })
+
+		  html+='</table>';
+
+		  $(".result").html(html); 
+
+		}
+
+		function getSorted(prop) 
+		{
+			return function(a,b) {
+				if(a[prop] < b[prop]) {	
+					return 1;
+				}
+				else if(a[prop] > b[prop]) {
+					return -1;
+				}
+				return 0;
+			}
+		}
+	
+
+	}); 
+	</script>
+	</body>
+</html>
