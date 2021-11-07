@@ -16,8 +16,10 @@
 	<body>
 
 	<select id='chain' >
+		<option value="cro">Cronos</option>
 		<option value='etherium'>Etherium</option>
 		<option value='arb'>Arb</option>
+		<option value='avax'>Avalanche</option>
 		<option value='opt'>Optimism</option>
 		<option value='nft'>NFT</option>
 		
@@ -79,6 +81,10 @@
 
 		var all_addr = {'theodore_detweiler':'0x5Eb67a3b141f3036899EE77822A41277166c540e','khalil':'0x780709dffad3aaf57bf38f2d035980be389dc8ff','defiPunts':'0xf817554cc4ca4fe435dbf43bd1bacf0d7b0f38d7','azima':'0x9d156bc7c8768294510a4a41883d5a4eb15b15e3','cryptamurai':'0x9b7d7c4ce98036c4d6f3d638a00e220e083116c7','unihax':'0x29bf6652e795c360f7605be0fcd8b8e4f29a52d4', 'chimp_neo':'0x19e4912da337024d754b26182ac7177f7d3e2a45','duke_rick':'0xa72dd12b9329e6efe095c030f361131604a79586', 'lordAlpha':'0xb290fd44a628a21fccbf6347668d80de4177da42','klimaKing':'0x4d928359e8556197f161f4927a928dfde9c3d1a8','cryptik1':'0x29bf02c855fabe805c2f74d8f4be02d060e1306f','shual':'0x9ed8b4e877d597bf464f88cc1afbf19fbf5aa1ba','theo_2':'0xefb10e5ce5bf77e58ef80e01e2401b66d5a73c2f','balan':'0x9dcc35ae915926f7f5e8c624254d91f755d55b71','dcfGod':'0x0f763341b448bb0f02370f4037fe4a2c84c9283f','lordAlpha_2':'0xb290fd44a628a21fccbf6347668d80de4177da42','Javajim85':'0x129c0b9581495d46087c9b04df06652691e93cba',
 		'jesseConorExod':'0x4e16a3c8f760c7c581695bbe6366985afacab4ab'} ;
+ 	
+ 		var cronosBaseUrl = "https://cronos.crypto.org/explorer/testnet3/";
+
+
 
 
 		// 'teamAlpha':'0x1a616dae57382a9084c026d3f475aed59c2668cb','polyTime':'0xb54e3abdc039cf42f5d7dbabc6d81b7ec34fc661',
@@ -114,7 +120,7 @@
 			var chain = $("#chain").val();
 			var txCnt = 10;
 			console.log('chain '+chain);
-			//console.log('this call '+1);
+			
 			//
 			if(chain =='etherium') {
 				var url = "https://api.etherscan.io/api?module=account&action=tokentx&address="+addr+"&page=1&offset="+txCnt+"&sort=desc&apikey=7AUEACQY1655CZK5TTWVBNH534XKVZ3R2G";
@@ -125,10 +131,14 @@
 				var url = "https://api.opensea.io/api/v1/events?account_address="+addr+"&event_type=successful&only_opensea=true&offset=0&limit=10";
 			} else if(chain == 'arb') {
 				var url ="https://api.arbiscan.io/api?module=account&action=tokentx&address="+addr+"&page=1&offset="+txCnt+"&sort=desc&apikey=YourApiKeyToken"
+			} else if(chain == 'avax') {
+				var url ="https://api.snowtrace.io/api?module=account&action=tokentx&address="+addr+"&page=1&offset="+txCnt+"&sort=desc&apikey=M78M1SRRDYVYHZ8UYHY7YFD1T6ICJAX3KN"
 			} else if(chain == 'opt') {
 				var url ="https://api-optimistic.etherscan.io/api?module=account&action=tokentx&address="+addr+"&page=1&offset="+txCnt+"&sort=desc&apikey=YourApiKeyToken"
 			} else if(chain == 'ftm') {
 				var url ="https://api.ftmscan.com/api?module=account&action=tokentx&address="+addr+"&page=1&offset="+txCnt+"&sort=desc&apikey=UPHBTMFAZ1FDIPCZZSSUWS12YQFBQQ55IG"
+			} else if(chain =='cro') {
+				var url = cronosBaseUrl+"api?module=account&action=tokentx&address="+addr+"&page=1&offset="+txCnt+"&sort=desc";
 			}	 
 			else {
 				// disabled polygon
@@ -249,11 +259,16 @@
 				html+='<td><a href="https://arbiscan.io/address/'+v.userAddr+'#tokentxns" target="_blank">'+v.nickName+' </a></td>';
 			} else if(chain =='opt') {
 				html+='<td><a href="https://optimistic.etherscan.io/address/'+v.userAddr+'#tokentxns" target="_blank">'+v.nickName+' </a></td>';
+			
+			} else if(chain =='avax') {
+				html+='<td><a href="https://snowtrace.io/address/'+v.userAddr+'#tokentxns" target="_blank">'+v.nickName+' </a></td>';
+			
 			} else if(chain =='ftm') {
 				html+='<td><a href="https://ftmscan.com/address/'+v.userAddr+'#tokentxns" target="_blank">'+v.nickName+' </a></td>';
+			} else if(chain =='cro') {
+				html+='<td><a href="'+cronosBaseUrl+'address/'+v.userAddr+'/token-transfers" target="_blank">'+v.nickName+' </a></td>';
 			} else {
 				html+='<td><a href="https://etherscan.io/address/'+v.userAddr+'#tokentxns" target="_blank">'+v.nickName+' </a></td>';
-				
 			}
 			html+='<td>'+v.tokenName+'</td>';
 			html+='<td>'+v.tokenSymbol+'</td>';
@@ -265,11 +280,13 @@
 				html+='<td><a href="https://arbiscan.io/tx/'+v.hash+'" target="_blank">Txn Lnk</a></td>';
 			} else if(chain =='opt') {
 				html+='<td><a href="https://optimistic.etherscan.io/tx/'+v.hash+'" target="_blank">Txn Lnk</a></td>';
+			} else if(chain =='avax') {
+				html+='<td><a href="https://snowtrace.io/tx/'+v.hash+'" target="_blank">Txn Lnk</a></td>';
 			} else if(chain =='ftm') {
 				html+='<td><a href="https://ftmscan.com/tx/'+v.hash+'" target="_blank">Txn Lnk</a></td>';
-			}else {
-				
-
+			} else if(chain =='cro') {
+				html+='<td><a href="'+cronosBaseUrl+'tx/'+v.hash+'" target="_blank">Txn Lnk</a></td>';
+			} else {
 				html+='<td><a href="https://etherscan.io/tx/'+v.hash+'" target="_blank">Txn Lnk</a></td>';
 			}
  
