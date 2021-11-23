@@ -23,6 +23,7 @@
 		<option value='opt'>Optimism</option>
 		<option value='nft'>NFT</option>
 		<option value='moon'>moon river</option>
+		<option value='boba'>Boba network</option>
 		
 		<option value='ftm'>Ftm</option>
 		<option value='opensea'>opensea</option>
@@ -86,6 +87,7 @@
  	
  		var cronosBaseUrl = "https://cronos.crypto.org/explorer/";
  		var moonBaseUrl ="https://blockscout.moonriver.moonbeam.network/";
+ 		var bobaBaseUrl = "https://blockexplorer.boba.network/";
 
 
 
@@ -152,8 +154,9 @@
 				var url = cronosBaseUrl+"api?module=account&action=tokentx&address="+addr+"&page=1&offset="+txCnt+"&sort=desc";
 			} else if(chain == 'moon') {
 				var url = moonBaseUrl+"api?module=account&action=tokentx&address="+addr+"&page=1&offset="+txCnt+"&sort=desc";
-			}	 
-			else {
+			}  else if(chain == 'boba') {
+				var url = bobaBaseUrl+"api?module=account&action=tokentx&address="+addr+"&page=1&offset="+txCnt+"&sort=desc";
+			} else {
 				// disabled polygon
 				//default polygon
 				var url ='https://api.polygonscan.com/api?module=account&action=tokentx&address='+addr+'&page=1&offset='+txCnt+'&sort=desc&apikey=JWI7WBAMSKYHJW9T5RACXYGF95PDUBDZ95';
@@ -282,6 +285,8 @@
 				html+='<td><a href="'+cronosBaseUrl+'address/'+v.userAddr+'/token-transfers" target="_blank">'+v.nickName+' </a></td>';
 			} else if(chain =='moon') { 
 				html+='<td><a href="'+moonBaseUrl+'address/'+v.userAddr+'/token-transfers" target="_blank">'+v.nickName+' </a></td>'; 
+			} else if(chain =='boba') { 
+				html+='<td><a href="'+bobaBaseUrl+'address/'+v.userAddr+'/token-transfers" target="_blank">'+v.nickName+' </a></td>'; 
 			} else {
 				html+='<td><a href="https://etherscan.io/address/'+v.userAddr+'#tokentxns" target="_blank">'+v.nickName+' </a></td>';
 			}
@@ -303,6 +308,8 @@
 				html+='<td><a href="'+cronosBaseUrl+'tx/'+v.hash+'" target="_blank">Txn Lnk</a></td>';
 			} else if(chain =='moon') {
 				html+='<td><a href="'+moonBaseUrl+'tx/'+v.hash+'" target="_blank">Txn Lnk</a></td>';
+			} else if(chain =='boba') {
+				html+='<td><a href="'+bobaBaseUrl+'tx/'+v.hash+'" target="_blank">Txn Lnk</a></td>';
 			} else {
 				html+='<td><a href="https://etherscan.io/tx/'+v.hash+'" target="_blank">Txn Lnk</a></td>';
 			}
