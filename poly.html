@@ -17,6 +17,7 @@
 
 	<select id='chain' >
 		<option value='near'>near</option>
+		<option value='metis'>metis</option>
 		<option value='avax'>Avalanche</option>
 		<option value="cro">Cronos</option>
 		<option value='etherium'>Etherium</option>
@@ -98,6 +99,7 @@
  		var moonBaseUrl ="https://blockscout.moonriver.moonbeam.network/";
  		var bobaBaseUrl = "https://blockexplorer.boba.network/";
  		var nearBaseUrl = "https://explorer.mainnet.aurora.dev/";
+ 		var metisBaseUrl = "https://andromeda-explorer.metis.io/";
 
 
 
@@ -168,6 +170,8 @@
 				var url = bobaBaseUrl+"api?module=account&action=tokentx&address="+addr+"&page=1&offset="+txCnt+"&sort=desc";
 			} else if(chain == 'near') {
 				var url = nearBaseUrl+"api?module=account&action=tokentx&address="+addr+"&page=1&offset="+txCnt+"&sort=desc";
+			} else if(chain == 'metis') {
+				var url = metisBaseUrl+"api?module=account&action=tokentx&address="+addr+"&page=1&offset="+txCnt+"&sort=desc";
 			} else {
 				// disabled polygon
 				//default polygon
@@ -301,6 +305,8 @@
 				html+='<td><a href="'+bobaBaseUrl+'address/'+v.userAddr+'/token-transfers" target="_blank">'+v.nickName+' </a></td>'; 
 			} else if(chain =='near') { 
 				html+='<td><a href="'+nearBaseUrl+'address/'+v.userAddr+'/token-transfers" target="_blank">'+v.nickName+' </a></td>'; 
+			} else if(chain =='metis') { 
+				html+='<td><a href="'+metisBaseUrl+'address/'+v.userAddr+'/token-transfers" target="_blank">'+v.nickName+' </a></td>'; 
 			} else {
 				html+='<td><a href="https://etherscan.io/address/'+v.userAddr+'#tokentxns" target="_blank">'+v.nickName+' </a></td>';
 			}
@@ -326,6 +332,8 @@
 				html+='<td><a href="'+bobaBaseUrl+'tx/'+v.hash+'" target="_blank">Txn Lnk</a></td>';
 			} else if(chain =='near') {
 				html+='<td><a href="'+nearBaseUrl+'tx/'+v.hash+'" target="_blank">Txn Lnk</a></td>';
+			} else if(chain =='metis') {
+				html+='<td><a href="'+metisBaseUrl+'tx/'+v.hash+'" target="_blank">Txn Lnk</a></td>';
 			} else {
 				html+='<td><a href="https://etherscan.io/tx/'+v.hash+'" target="_blank">Txn Lnk</a></td>';
 			}
