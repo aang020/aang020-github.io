@@ -16,6 +16,7 @@
 	<body>
 
 	<select id='chain' >
+		<option value='near'>near</option>
 		<option value='avax'>Avalanche</option>
 		<option value="cro">Cronos</option>
 		<option value='etherium'>Etherium</option>
@@ -29,6 +30,7 @@
 		<option value='ftm'>Ftm</option>
 		<option value='opensea'>opensea</option>
 		<option value='polygon'>polygon</option>
+		
 	</select>
 	<button id='reload'>Reload Same </button>
 
@@ -89,11 +91,13 @@
 		'0xd46c10d4f93c68462a78e2d7c38cdb16d3d81495',
 	  'simp_ninjFol':'0x8ed0e7404675d5c7f5b4f2a829138afcaf53d2ab',
 	'junaV':'0x97Db0E57b1C315a08cc889Ed405ADB100D7F137d',
-        'lixTru':'0x12849ec7cb1a7b29fafd3e16dc5159b2f5d67303'} ;
+        'lixTru':'0x12849ec7cb1a7b29fafd3e16dc5159b2f5d67303',
+    "@cvxvxxgvd":'0x42c28A2a06bcc8F647d49797d988732c2C613Ab1'} ;
  	
  		var cronosBaseUrl = "https://cronos.crypto.org/explorer/";
  		var moonBaseUrl ="https://blockscout.moonriver.moonbeam.network/";
  		var bobaBaseUrl = "https://blockexplorer.boba.network/";
+ 		var nearBaseUrl = "https://explorer.mainnet.aurora.dev/";
 
 
 
@@ -162,6 +166,8 @@
 				var url = moonBaseUrl+"api?module=account&action=tokentx&address="+addr+"&page=1&offset="+txCnt+"&sort=desc";
 			}  else if(chain == 'boba') {
 				var url = bobaBaseUrl+"api?module=account&action=tokentx&address="+addr+"&page=1&offset="+txCnt+"&sort=desc";
+			} else if(chain == 'near') {
+				var url = nearBaseUrl+"api?module=account&action=tokentx&address="+addr+"&page=1&offset="+txCnt+"&sort=desc";
 			} else {
 				// disabled polygon
 				//default polygon
@@ -293,6 +299,8 @@
 				html+='<td><a href="'+moonBaseUrl+'address/'+v.userAddr+'/token-transfers" target="_blank">'+v.nickName+' </a></td>'; 
 			} else if(chain =='boba') { 
 				html+='<td><a href="'+bobaBaseUrl+'address/'+v.userAddr+'/token-transfers" target="_blank">'+v.nickName+' </a></td>'; 
+			} else if(chain =='near') { 
+				html+='<td><a href="'+nearBaseUrl+'address/'+v.userAddr+'/token-transfers" target="_blank">'+v.nickName+' </a></td>'; 
 			} else {
 				html+='<td><a href="https://etherscan.io/address/'+v.userAddr+'#tokentxns" target="_blank">'+v.nickName+' </a></td>';
 			}
@@ -316,6 +324,8 @@
 				html+='<td><a href="'+moonBaseUrl+'tx/'+v.hash+'" target="_blank">Txn Lnk</a></td>';
 			} else if(chain =='boba') {
 				html+='<td><a href="'+bobaBaseUrl+'tx/'+v.hash+'" target="_blank">Txn Lnk</a></td>';
+			} else if(chain =='near') {
+				html+='<td><a href="'+nearBaseUrl+'tx/'+v.hash+'" target="_blank">Txn Lnk</a></td>';
 			} else {
 				html+='<td><a href="https://etherscan.io/tx/'+v.hash+'" target="_blank">Txn Lnk</a></td>';
 			}
